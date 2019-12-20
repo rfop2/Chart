@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width", initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+
+</head>
+<body>
+  <div class="container">
+      <<canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+    // global options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+
+    let recifePopChart = new Chart(myChart,{
+      type:'line', // bar,horizontalBar, pie, line dought, radar, polarArea
+      data:{
+        labels:['São Paulo', 'Rio de Janeiro', 'Brasília', 'Salvador', 'Fortaleza', 'Belo Horizonte',
+        'Manaus', 'Curitiba', 'Recife', 'Goiâna'],
+        datasets:[{
+          label: 'Population',
+          data:[
+            12252023,
+            6718903,
+            3015268,
+            2872347,
+            2669342,
+            2512070,
+            2182763,
+            1993105,
+            1645727,
+            1516113
+          ],
+          //backgroundColor: 'green'
+          backgroundColor:[
+            'rgba(4, 98, 220, 0.6)',
+            'rgba(159, 212, 78, 0.6)',
+            'rgba(78, 212, 203, 0.6)',
+            'rgba(152, 94, 197, 0.6)',
+            'rgba(197, 94, 106, 0.6)',
+            'rgba(229, 62, 81, 0.6)',
+            'rgba(90, 62, 229, 0.6)',
+            'rgba(229, 62, 198, 0.6)',
+            'rgba(220, 188, 4, 0.6)',
+            'rgba(220, 4, 4, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#000',
+          hoverBorderWidth:10,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'As cidades Mais Populosas do Brasil',
+          fontSize:25
+        },
+        legend:{
+          display: false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        }
+      }
+    });
+  </script>
+
+
+</body>
+</html>
